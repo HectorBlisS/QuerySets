@@ -1,0 +1,20 @@
+<h1>Bienvenido ^_^</h1>
+<a href="{%url 'cines'%}">Ve los cines que hay</a>
+{%if request.user.is_authenticated%}
+Hola {{request.user.perfil.alias}}
+<br>
+ya estas grandecito cabrón {{request.user.perfil.edad}}
+<br>
+Te voy a llamar al {{request.user.perfil.tel}}
+<br>
+porque eres {{request.user.perfil.genero}} y {{request.user.perfil.ocupacion}}
+
+<form method="post" action=".">
+	{%csrf_token%}
+	<input type="text" name="nombre" placeholder="el nombre de tu producto">
+	<input type="text" name="desc" placeholder="descripcion del produycto">
+	<input type="text" name="precio" placeholder="el precio del producto">
+	<input type="submit">
+</form>
+
+{%endif%}
